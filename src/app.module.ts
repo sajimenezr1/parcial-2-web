@@ -5,9 +5,11 @@ import { MedicosModule } from './medicos/medicos.module';
 import { PacientesModule } from './pacientes/pacientes.module';
 import { DiagnosticosModule } from './diagnosticos/diagnosticos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PacienteMedicoModule } from './paciente-medico/paciente-medico.module';
+
 
 @Module({
-  imports: [MedicosModule, PacientesModule, DiagnosticosModule,
+  imports: [MedicosModule, PacientesModule, DiagnosticosModule,PacienteMedicoModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
