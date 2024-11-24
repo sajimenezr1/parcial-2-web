@@ -1,6 +1,6 @@
-import { DiagnosticoEntity } from "src/diagnosticos/entities/diagnostico.entity";
-import { MedicoEntity } from "src/medicos/entities/medico.entity";
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { DiagnosticoEntity } from "../../diagnosticos/entities/diagnostico.entity";
+import { MedicoEntity } from "../../medicos/entities/medico.entity";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class PacienteEntity {
@@ -16,9 +16,11 @@ export class PacienteEntity {
 
     @ManyToMany(() => MedicoEntity,
     medico => medico.pacientes)
+    @JoinTable()
     medicos: MedicoEntity[];
 
     @ManyToMany(() => DiagnosticoEntity,
-    diagnostico => diagnostico.pacientes)
+    diagnostico => diagnostico.pacientes, {cascade:true})
+    @JoinTable()
     diagnosticos: DiagnosticoEntity[];
 }

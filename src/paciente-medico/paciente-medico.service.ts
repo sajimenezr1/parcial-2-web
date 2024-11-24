@@ -20,10 +20,10 @@ export class PacienteMedicoService {
       const pacienteEntity = await this.pacientesService.findOne(pacienteId);
       const medicoEntity: MedicoEntity = await this.medicosService.findOne(medicoId);
       const amountMedicos: MedicoEntity[] = pacienteEntity.medicos;
-      if (amountMedicos.length == 5){
+      if (amountMedicos && amountMedicos.length == 5){
         throw new BusinessLogicException(`The patient with id ${pacienteId} has already 5 medics`, BusinessError.PRECONDITION_FAILED)
       }
-      pacienteEntity.medicos = [...amountMedicos, medicoEntity];
+      pacienteEntity.medicos = [...amountMedicos || [], medicoEntity];
       return await this.pacienteRepository.save(pacienteEntity);
   }
 

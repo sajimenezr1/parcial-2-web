@@ -1,4 +1,4 @@
-import { PacienteEntity } from "src/pacientes/entities/paciente.entity";
+import { PacienteEntity } from "../../pacientes/entities/paciente.entity";
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

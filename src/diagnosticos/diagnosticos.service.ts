@@ -15,6 +15,9 @@ export class DiagnosticosService {
 
   async create(createDiagnosticoDto: CreateDiagnosticoDto) {
     const {nombre, descripcion} = createDiagnosticoDto;
+    if (descripcion.length > 200){
+      throw new BusinessLogicException('descripcion must be less than 200 characters', BusinessError.PRECONDITION_FAILED)
+    }
     return await this.diagnosticoRepository.save({nombre, descripcion});
   }
 
@@ -26,7 +29,6 @@ export class DiagnosticosService {
     const diagnostico:DiagnosticoEntity = await this.diagnosticoRepository.findOne({where: {id}})
     if(!diagnostico){
         throw new BusinessLogicException(`The diagnostic with id ${id} doesn't exists`, BusinessError.NOT_FOUND)
-
     }
     return diagnostico;
   }

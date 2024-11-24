@@ -14,6 +14,9 @@ export class PacientesService {
 
   async create(createPacienteDto: CreatePacienteDto) {
     const {nombre, genero} = createPacienteDto;
+    if (nombre.length < 3){
+      throw new BusinessLogicException("nombre must be longer than or equal to 3 characters", BusinessError.PRECONDITION_FAILED)
+    }
     return await this.pacienteRepository.save({nombre, genero});
   }
 
@@ -22,7 +25,7 @@ export class PacientesService {
   }
 
   async findOne(id: string): Promise<PacienteEntity> {
-    const paciente:PacienteEntity = await this.pacienteRepository.findOne({where: {id}});
+    const paciente:PacienteEntity = await this.pacienteRepository.findOne({where: {id}, relations : ["medicos" , "diagnosticos"]});
     if(!paciente){
       throw new BusinessLogicException(`The pacient with id ${id} doesn't exists`, BusinessError.NOT_FOUND)
     }
@@ -31,6 +34,10 @@ export class PacientesService {
 
   async remove(id: string) {
     const persistedPaciente = await this.findOne(id);
+    const diagnosticos = persistedPaciente.diagnosticos
+    if (diagnosticos && diagnosticos.length >0){
+      throw new BusinessLogicException('Patient has diagnostics and cannot be deleted', BusinessError.PRECONDITION_FAILED)
+    }
     await this.pacienteRepository.remove(persistedPaciente);
   }
 }

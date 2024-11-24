@@ -12,6 +12,7 @@ import { PacienteEntity } from '../pacientes/entities/paciente.entity';
   providers: [PacienteMedicoService],
   imports: [MedicosModule, PacientesModule,
     TypeOrmModule.forFeature([PacienteEntity]),
-  ]
+  ],
+  exports: [PacienteMedicoService]
 })
 export class PacienteMedicoModule {}
