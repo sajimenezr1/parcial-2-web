@@ -41,3 +41,4 @@ export class PacientesService {
     await this.pacienteRepository.remove(persistedPaciente);
   }
 }
+ 

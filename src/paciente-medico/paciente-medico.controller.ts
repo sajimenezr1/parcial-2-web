@@ -1,9 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Post, Param, ParseUUIDPipe, UseInterceptors } from '@nestjs/common';
 import { PacienteMedicoService } from './paciente-medico.service';
-import { MedicoEntity } from 'src/medicos/entities/medico.entity';
 import { PacienteEntity } from 'src/pacientes/entities/paciente.entity';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-error/bussines-error.interceptor';
 
 @Controller('pacientes/:pacienteId/medicos')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class PacienteMedicoController {
   constructor(private readonly pacienteMedicoService: PacienteMedicoService) {}
 

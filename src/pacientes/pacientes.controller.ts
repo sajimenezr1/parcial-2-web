@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, ParseUUIDPipe, UseInterceptors } from '@nestjs/common';
 import { PacientesService } from './pacientes.service';
 import { CreatePacienteDto } from './dto/create-paciente.dto';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-error/bussines-error.interceptor';
 
 @Controller('pacientes')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class PacientesController {
   constructor(private readonly pacientesService: PacientesService) {}
 

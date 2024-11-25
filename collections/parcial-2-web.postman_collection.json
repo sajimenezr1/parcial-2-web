@@ -1,0 +1,1226 @@
+{
+	"info": {
+		"_postman_id": "a2095333-b7ea-4a2b-a779-d43929f1831b",
+		"name": "parcial-2-web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27397145"
+	},
+	"item": [
+		{
+			"name": "pacientes",
+			"item": [
+				{
+					"name": "Get All Patients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pacientes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Patients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/pacientes",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"ebfcbc7d-bd00-41fa-9ee4-f36b54455b40\",\r\n        \"nombre\": \"Samuel Jimenez\",\r\n        \"genero\": \"Masculino\"\r\n    },\r\n    {\r\n        \"id\": \"ce061e3a-dc7b-44f5-830d-11735cab379b\",\r\n        \"nombre\": \"Elizabeth Connor\",\r\n        \"genero\": \"Femenino\"\r\n    },\r\n    {\r\n        \"id\": \"b58d7d42-9e7d-448d-993b-092dd2aefc8f\",\r\n        \"nombre\": \"Elizabeth Jimenez\",\r\n        \"genero\": \"Femenino\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Get One Patient",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pacientes/{{pacienteId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"{{pacienteId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get One Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/pacientes/{{pacienteId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"{{pacienteId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"ce061e3a-dc7b-44f5-830d-11735cab379b\",\r\n    \"nombre\": \"Elizabeth Connor\",\r\n    \"genero\": \"Femenino\",\r\n    \"medicos\": [],\r\n    \"diagnosticos\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Inexistent Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Inexistent Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The pacient with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Elizabeth Jimenez\",\r\n    \"genero\" : \"Femenino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pacientes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a patient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Samuel Jimenez\",\r\n    \"genero\": \"Masculino\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/pacientes",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"nombre\": \"Samuel Jimenez\",\r\n    \"genero\": \"Masculino\",\r\n    \"id\": \"ebfcbc7d-bd00-41fa-9ee4-f36b54455b40\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add invalid patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ra\",\r\n    \"genero\": \"Masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pacientes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add invalid patient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Ra\",\r\n    \"genero\": \"Masculino\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/pacientes",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": [\r\n        \"nombre must be longer than or equal to 3 characters\"\r\n    ],\r\n    \"error\": \"Bad Request\",\r\n    \"statusCode\": 400\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete patient",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Delete patient",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/pacientes/{{pacienteId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"{{pacienteId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete invalid patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete invalid patient",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The pacient with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "medicos",
+			"item": [
+				{
+					"name": "Get All Medicos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/medicos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Medicos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/medicos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"2c57cc65-c039-4f52-839d-83ded6c05196\",\r\n        \"nombre\": \"Elizabeth Jimenez\",\r\n        \"especialidad\": \"Cardiologo\",\r\n        \"telefono\": \"3212208087\"\r\n    },\r\n    {\r\n        \"id\": \"7c9c236a-8ee6-4548-b4d8-f393f1dec1bc\",\r\n        \"nombre\": \"Elizabeth Jimenez\",\r\n        \"especialidad\": \"Cardiologo\",\r\n        \"telefono\": \"3212208087\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Get One Medico",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/medicos/{{medicoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos",
+								"{{medicoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get One Medico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/medicos/{{medicoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos",
+										"{{medicoId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"7c9c236a-8ee6-4548-b4d8-f393f1dec1bc\",\r\n    \"nombre\": \"Elizabeth Jimenez\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\",\r\n    \"pacientes\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Inexistent Medico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/medicos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Inexistent Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/medicos/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The pacient with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a medico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Elizabeth Jimenez\",\r\n    \"especialidad\" : \"Cardiologo\",\r\n    \"telefono\" : \"3212208087\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/medicos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a medico",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Elizabeth Jimenez\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/medicos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"nombre\": \"Elizabeth Jimenez\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\",\r\n    \"id\": \"2c57cc65-c039-4f52-839d-83ded6c05196\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add invalid medico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/medicos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add invalid medico",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/medicos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": [\r\n        \"nombre should not be empty\"\r\n    ],\r\n    \"error\": \"Bad Request\",\r\n    \"statusCode\": 400\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete medico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/medicos/{{medicoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos",
+								"{{medicoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete medico",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/medicos/{{medicoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos",
+										"{{medicoId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete invalid medico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/medicos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"medicos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete invalid medico",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/medicos/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"medicos",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The doctor with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "diagnosticos",
+			"item": [
+				{
+					"name": "Get All Diagnosticos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Medicos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"6480f261-e48e-4b48-8176-be1d29b069d9\",\r\n        \"nombre\": \"Cancer\",\r\n        \"descripcion\": \"Cancer peligroso\"\r\n    },\r\n    {\r\n        \"id\": \"d124251a-a273-46eb-83e6-4350a2dad921\",\r\n        \"nombre\": \"Cancer\",\r\n        \"descripcion\": \"Cancer peligroso\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Get One Diagnostico",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos/{{diagnosticoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{diagnosticoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get One Diagnostico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/diagnostico/{{diagnosticoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnostico",
+										"{{diagnosticoId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"6480f261-e48e-4b48-8176-be1d29b069d9\",\r\n    \"nombre\": \"Cancer\",\r\n    \"descripcion\": \"Cancer peligroso\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Inexistent Diagnostico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Inexistent Diagnostico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The diagnostic with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a diagnostico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Cancer\",\r\n    \"descripcion\" : \"Cancer peligroso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a diagnostico",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Elizabeth Jimenez\",\r\n    \"especialidad\": \"Cardiologo\",\r\n    \"telefono\": \"3212208087\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"nombre\": \"Cancer\",\r\n    \"descripcion\": \"Cancer peligroso\",\r\n    \"id\": \"6480f261-e48e-4b48-8176-be1d29b069d9\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add invalid diagnostico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cancer\",\r\n    \"descripcion\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add invalid diagnostico",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Cancer\",\r\n    \"descripcion\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": [\r\n        \"descripcion must be shorter than or equal to 200 characters\"\r\n    ],\r\n    \"error\": \"Bad Request\",\r\n    \"statusCode\": 400\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete diagnostico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos/{{diagnosticoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos",
+								"{{diagnosticoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete diagnostico",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos/{{medicoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos",
+										"{{medicoId}}"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete invalid diagnostico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/diagnosticos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"diagnosticos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete invalid medico",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/diagnosticos/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"diagnosticos",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The diagnostic with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "paciente-medico",
+			"item": [
+				{
+					"name": "Add a medico to pacient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Elizabeth Jimenez\",\r\n    \"genero\" : \"Femenino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pacientes/{{pacienteId}}/medicos/{{medicoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"{{pacienteId}}",
+								"medicos",
+								"{{medicoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a medico to pacient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Samuel Jimenez\",\r\n    \"genero\": \"Masculino\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/pacientes/{{pacienteId}}/medicos/{{medicoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"{{pacienteId}}",
+										"medicos",
+										"{{medicoId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"1b36f7da-a8da-43fc-9457-c3e3983587bc\",\r\n    \"nombre\": \"Elizabeth Jimenez\",\r\n    \"genero\": \"Femenino\",\r\n    \"medicos\": [\r\n        {\r\n            \"id\": \"2c57cc65-c039-4f52-839d-83ded6c05196\",\r\n            \"nombre\": \"Elizabeth Jimenez\",\r\n            \"especialidad\": \"Cardiologo\",\r\n            \"telefono\": \"3212208087\",\r\n            \"pacientes\": []\r\n        }\r\n    ],\r\n    \"diagnosticos\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a medico to pacient invalid medico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ra\",\r\n    \"genero\": \"Masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pacientes/{{pacienteId}}/medicos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"{{pacienteId}}",
+								"medicos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add invalid medic to patient invalid medico",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Ra\",\r\n    \"genero\": \"Masculino\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/pacientes/{{pacienteId}}/medicos/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"{{pacienteId}}",
+										"medicos",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The doctor with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a medico to pacient invalid paciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000/medicos/{{medicoId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pacientes",
+								"00000000-0000-0000-0000-000000000000",
+								"medicos",
+								"{{medicoId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a medico to pacient invalid paciente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/pacientes/00000000-0000-0000-0000-000000000000/medicos/{{medicoId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"pacientes",
+										"00000000-0000-0000-0000-000000000000",
+										"medicos",
+										"{{medicoId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The pacient with id 00000000-0000-0000-0000-000000000000 doesn't exists\"\r\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "pacienteId",
+			"value": "1b36f7da-a8da-43fc-9457-c3e3983587bc",
+			"type": "string"
+		},
+		{
+			"key": "medicoId",
+			"value": "2c57cc65-c039-4f52-839d-83ded6c05196",
+			"type": "string"
+		},
+		{
+			"key": "diagnosticoId",
+			"value": "6480f261-e48e-4b48-8176-be1d29b069d9",
+			"type": "string"
+		}
+	]
+}
